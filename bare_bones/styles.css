@@ -1,150 +1,153 @@
+:root {
+  --main-grey: #edeae5;
+  --main-yellow: #fce181;
+  --main-yellow-light: #fef9c7;
+  --main-teal: #026670;
+  --main-teal-light: #9fedd7;
+}
+
 body {
-    margin: 0;
-    background: white;
-    font-family: Helvetica, Arial, sans-serif;
+  margin: 0;
+  background: var(--main-grey);
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 a {
-    /* to remove default link styling */
-    color: white;
-    text-decoration: none;
+  /* to remove default link styling */
+  color: white;
+  text-decoration: none;
 
-    /* add animation to hove effect */
-    transition: 0.3s all;
-}
-
-a.active {
-    color: blue;
-}
-
-a:hover {
-    color: blue;
-}
-
-.container {
-    /* The top padding is 80px because that is the height of the topbar. 
-    Otherwise, the page content would start behind the topbar, and 
-    could not be seen.
-    */
-    padding-top: 80px;
+  /* add animation to hover effect */
+  transition: 0.3s all;
 }
 
 .container .text-container {
-    /* Padding order is top, right, bottom, left. */
-    padding: 0px 15px 15px 15px;
+  /* Padding order is top, right, bottom, left. */
+  padding: 0px 15px 15px 15px;
 }
 
 .topbar {
-    height: 80px;
-    /* makes the topbar stretch across the entire screen */
-    width: 100%;
-    /* makes the topbar flush against the top and left of the screen */
-    margin-left: 0;
-    margin-top: 0;
+  height: 50px;
+  /* makes the topbar stretch across the entire screen */
+  width: 100%;
 
-    /* this fixes the position, removing it from the document flow. It 
+  /* makes the topbar flush against the top of the screen */
+  top: 0;
+
+  /* this fixes the position, removing it from the document flow. It 
     will remain in place even when you scroll. */
-    position: fixed;
+  position: fixed;
 
-    color: white;
-    background: black;
+  color: white;
+  background: var(--main-teal);
 }
 
 .topbar .topbar-content {
-    /* this makes the .topbar-content the anchor on which
+  /* this makes the .topbar-content the anchor on which
     absolutely positioned content can position itself */
-    position: relative;
+  display: flex;
 }
 
 .topbar .topbar-content .logo {
-
-    /* makes it so each element will display side by side, rather than
+  /* makes it so each element will display side by side, rather than
     giving each one its own line */
-    display: inline-block;
+  display: inline-block;
 
-    /* absolute position allows you to anchor the element to exact
-    locations on its relatively positioned parent
-    */
-    position: absolute;
+  /* this works only for one-line text, but it 
+    vertically centers the text on the topbar (same height) */
+  line-height: 50px;
 
-    /* places the logo at the far left of the screen */
-    left: 0;
-
-    /* this works only for one-line text, but it 
-    vertically centers the text on the topbar */
-    height: 80px;
-    line-height: 80px;
-
-    /* Add a bit of whitespace to the left, for aesthetic purpose */
-    padding-left: 15px;
+  /* Add a bit of whitespace to the left, for aesthetic purpose */
+  padding-left: 15px;
 }
 
 .topbar .links {
-    display: inline-block;
-    position: absolute;
-    right: 0;
-    height: 80px;
-    line-height: 80px;
-    margin: 0;
+  display: inline-block;
+  position: absolute;
+  right: 0;
 }
 
 .topbar .links .link {
-    display: inline-block;
-    padding-right: 15px;
+  display: inline-block;
+  padding-right: 15px;
 }
 
+a.active {
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--main-teal-light);
+}
+
+.container {
+  /* The top padding accounts for the height of the nav bar at the top.
+  Since the nav is fixed position, it will overlap with the content, so the
+  container needs to account for that.
+    */
+  padding-top: 50px;
+  color: black;
+}
 
 .header {
-    background: blue;
-    text-align: center;
-    padding: 15px;
+  background: var(--main-yellow);
+  text-align: center;
+  padding: 15px;
 }
 
 .header .header-image {
-    background-image: url('https://cdn.pixabay.com/photo/2016/01/05/17/51/dog-1123016_960_720.jpg');
-    background-size: cover;
-    display: inline-block;
-    background-position: center;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
+  background-image: url("https://cdn.pixabay.com/photo/2016/01/05/17/51/dog-1123016_960_720.jpg");
+  background-size: cover;
+  display: inline-block;
+  background-position: center;
+  /* This crops the image to be circular */
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
 }
 
 .header .header-title {
-    margin: 0;
-    color: white;
+  /* Headers (h1, h2 ... h6) automatically come with margins.
+  This removes them. */
+  margin: 0;
 }
 
 .text-container.about {
-    text-align: center;
+  text-align: center;
 }
 
 .about .about-text {
-    display: inline-block;
-    text-align: left;
-    width: 100%;
-    text-align: center;
+  display: inline-block;
+  text-align: left;
+  width: 100%;
+  text-align: center;
 
-    /* remove the next two lines below to have sections side by side */
-    min-width: 300px;
-    max-width: 500px;
-
+  /* remove the next two lines below to have sections side by side */
+  min-width: 300px;
+  max-width: 500px;
 }
 
 .about .about-section {
-    display: inline-block;
-    min-width: 300px;
-    width: 100%;
-    max-width: 500px;
-    text-align: left;
+  display: inline-block;
+  min-width: 300px;
+  width: 100%;
+  max-width: 500px;
+  text-align: left;
 }
 
 .about .about-text h2 {
-    color: white;
-    padding: 15px 15px 15px 15px;
-    background: blue;
+  color: black;
+  padding: 15px 15px 15px 15px;
 }
 
 .about .about-text p {
-    padding-left: 15px;
+  padding-left: 15px;
+}
+
+.about .about-section-odd h2 {
+  background: var(--main-teal-light);
+}
+
+.about .about-section-even h2 {
+  background: var(--main-yellow-light);
 }
