@@ -121,17 +121,12 @@ a:hover {
   text-align: left;
   width: 100%;
   text-align: center;
-
-  /* remove the next two lines below to have sections side by side */
-  min-width: 300px;
-  max-width: 500px;
+  align-content: center;
 }
 
 .about .about-section {
   display: inline-block;
-  min-width: 300px;
-  width: 100%;
-  max-width: 500px;
+  width: 800px;
   text-align: left;
 }
 
@@ -150,4 +145,11 @@ a:hover {
 
 .about .about-section-even h2 {
   background: var(--main-yellow-light);
+}
+
+/* Use specific styling for smaller screens (ie tablet or mobile) with media queries */
+@media only screen and (max-width: 760px) {
+  .about .about-section {
+    width: 500px;
+  }
 }
